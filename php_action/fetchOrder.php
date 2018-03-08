@@ -51,7 +51,7 @@ if($result->num_rows > 0) {
 	    
 	    <li><a type="button" data-toggle="modal" id="paymentOrderModalBtn" data-target="#paymentOrderModal" onclick="paymentOrder('.$orderId.')"> <i class="glyphicon glyphicon-save"></i> Payment</a></li>
 		
-		<li><a type="button" data-toggle="modal" id="statusOrderModalBtn" data-target="#statusOrderModal" onclick="statusOrder('.$orderId.')"> <i class="glyphicon glyphicon-save"></i> Order Status</a></li>
+		<li><a type="button" data-toggle="modal" id="statusOrderModalBtn" data-target="#statusOrderModal" onclick="statusOrder('.$orderId.')"> <i class="glyphicon glyphicon-send"></i> Order Status</a></li>
 		
 	    <li><a type="button" onclick="printOrder('.$orderId.')"> <i class="glyphicon glyphicon-print"></i> Print </a></li>
 	    
