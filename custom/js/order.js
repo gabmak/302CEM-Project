@@ -877,3 +877,24 @@ function statusOrder(orderId = null) {
 	}
 }
 
+function sendToLogistic(orderId = null) {
+	if(orderId) {
+
+		$("#orderDate").datepicker();
+		var needData;
+		$.ajax({
+			url: 'php_action/fetchOrderDataForLogistic.php',
+			type: 'post',
+			data: {orderId: orderId},
+			dataType: 'json',
+			success:function(response) {
+				var mywindow = window.open('', 'Stock Management System', 'height=400,width=600');
+				mywindow.document.write('<html><body><p>')
+				mywindow.document.write(response)
+				mywindow.document.write('</p></body></html>')
+				}
+		});
+	} else {
+		alert('Error !');
+	}
+}

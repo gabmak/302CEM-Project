@@ -5,8 +5,8 @@ require_once 'core.php';
 $valid['success'] = array('success' => false, 'messages' => array());
 
 if($_POST) {	
-	$orderId 					= $_POST['orderId'];
-	$payAmount 				= $_POST['payAmount']; 
+  $orderId 					= $_POST['orderId'];
+  $payAmount 				= $_POST['payAmount']; 
   $paymentType 			= $_POST['paymentType'];
   $paymentStatus 		= $_POST['paymentStatus'];  
   $paidAmount        = $_POST['paidAmount'];
