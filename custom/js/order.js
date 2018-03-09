@@ -879,19 +879,22 @@ function statusOrder(orderId = null) {
 
 function sendToLogistic(orderId = null) {
 	if(orderId) {
-
-		$("#orderDate").datepicker();
-		var needData;
 		$.ajax({
 			url: 'php_action/fetchOrderDataForLogistic.php',
 			type: 'post',
 			data: {orderId: orderId},
 			dataType: 'json',
 			success:function(response) {
-				var mywindow = window.open('', 'Stock Management System', 'height=400,width=600');
-				mywindow.document.write('<html><body><p>')
-				mywindow.document.write(response)
-				mywindow.document.write('</p></body></html>')
+				
+				let dataStr = JSON.stringify(response);
+    let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+    
+    let exportFileDefaultName = 'data.json';
+    
+    let linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
 				}
 		});
 	} else {
