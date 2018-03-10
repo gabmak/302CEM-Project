@@ -10,8 +10,8 @@ $connect = new mysqli($localhost, $username, $password, $dbname);
 
 mysqli_query($connect,"SET NAMES 'utf8'");
 
-//$orderId = $_POST['orderId'];
-$orderId = 1;
+$orderId = $_POST['orderId'];
+
 	
 $valid['sender'] = "YourSupplyer Ltd";
 $valid['sender contact'] = "26471358";
@@ -45,16 +45,19 @@ if ($result->num_rows > 0) {
 
 
 
-$sql = "SELECT order_item.order_id, order_item.product_id, categories.categories_name, order_item.quantity, product.categories_id 
+$sql = "SELECT categories.categories_name, order_item.quantity
 	FROM order_item, categories, product
 	WHERE order_item.order_id = {$orderId} 
 	AND order_item.product_id = product.product_id 
 	AND product.categories_id = categories.categories_id";
 
+$counter = 0;
 $result = $connect->query($sql);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_row($result)) {
-	$valid['product'] = $row;
+		$counter = $counter +1;
+		$valid['product'][$counter]['name'] = $row[0];
+		$valid['product'][$counter]['quantity'] = $row[1];
 	}
 }
 

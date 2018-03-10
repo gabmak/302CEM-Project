@@ -361,8 +361,8 @@ function printOrder(orderId = null) {
         mywindow.document.close(); // necessary for IE >= 10
         mywindow.focus(); // necessary for IE >= 10
 
-        mywindow.print();
-        mywindow.close();
+//      mywindow.print();
+//        mywindow.close();
 				
 			}// /success function
 		}); // /ajax function to fetch the printable order
@@ -889,7 +889,7 @@ function sendToLogistic(orderId = null) {
 				let dataStr = JSON.stringify(response);
     let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
     
-    let exportFileDefaultName = 'data.json';
+    let exportFileDefaultName = 'order_to_slogistic.json';
     
     let linkElement = document.createElement('a');
     linkElement.setAttribute('href', dataUri);
