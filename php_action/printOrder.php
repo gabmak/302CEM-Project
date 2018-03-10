@@ -81,10 +81,7 @@ $orderItemResult = $connect->query($orderItemSql);
 			<th>'.$subTotal.'</th>			
 		</tr>
 
-		<tr>
-			<th>VAT (13%)</th>
-			<th>'.$vat.'</th>			
-		</tr>
+		
 
 		<tr>
 			<th>Total Amount</th>

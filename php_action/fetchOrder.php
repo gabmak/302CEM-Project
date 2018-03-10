@@ -2,6 +2,7 @@
 
 require_once 'core.php';
 
+
 $sql = "SELECT order_id, order_date, client_name, client_contact, payment_status, process_status FROM orders WHERE order_status = 1";
 $result = $connect->query($sql);
 
@@ -55,6 +56,8 @@ if($result->num_rows > 0) {
 		
 	    <li><a type="button" onclick="printOrder('.$orderId.')"> <i class="glyphicon glyphicon-print"></i> Print </a></li>
 	    
+		<li><a type="button" onclick="sendToLogistic('.$orderId.')"> <i class="glyphicon glyphicon-ok"></i> Export for logistic </a></li>
+		
 	    <li><a type="button" data-toggle="modal" data-target="#removeOrderModal" id="removeOrderModalBtn" onclick="removeOrder('.$orderId.')"> <i class="glyphicon glyphicon-trash"></i> Remove</a></li>       
 	  </ul>
 	</div>';		
