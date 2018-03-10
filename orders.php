@@ -72,15 +72,21 @@ if($_GET['o'] == 'add') {
 			  <div class="form-group">
 			    <label for="clientName" class="col-sm-2 control-label">Client Name</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" id="clientName" name="clientName" placeholder="Client Name" autocomplete="off" />
+			      <input type="text" class="form-control" id="clientName" name="clientName" placeholder="Client Name" autocomplete="off" value="eshopABC" />
 			    </div>
 			  </div> <!--/form-group-->
 			  <div class="form-group">
 			    <label for="clientContact" class="col-sm-2 control-label">Client Contact</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" id="clientContact" name="clientContact" placeholder="Contact Number" autocomplete="off" />
+			      <input type="text" class="form-control" id="clientContact" name="clientContact" placeholder="Contact Number" autocomplete="off" value="1234567" />
 			    </div>
-			  </div> <!--/form-group-->			  
+			  </div> <!--/form-group-->
+			<div class="form-group">
+			    <label for="clientAddress" class="col-sm-2 control-label">Shipping Address</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="clientAddress" name="clientAddress" placeholder="Shipping Address" autocomplete="off" value="1 eShop Street, Kowloon Tong, Kowloon" />
+			    </div>
+			  </div> <!--/form-group-->
 
 			  <table class="table" id="productTable">
 			  	<thead>
@@ -258,7 +264,7 @@ if($_GET['o'] == 'add') {
 
   			<?php $orderId = $_GET['i'];
 
-  			$sql = "SELECT orders.order_id, orders.order_date, orders.client_name, orders.client_contact, orders.sub_total, orders.vat, orders.total_amount, orders.discount, orders.grand_total, orders.paid, orders.due, orders.payment_type, orders.payment_status FROM orders 	
+  			$sql = "SELECT orders.order_id, orders.order_date, orders.client_name, orders.client_contact, orders.sub_total, orders.vat, orders.total_amount, orders.discount, orders.grand_total, orders.paid, orders.due, orders.payment_type, orders.payment_status, shipping_address FROM orders 	
 					WHERE orders.order_id = {$orderId}";
 
 				$result = $connect->query($sql);
@@ -282,7 +288,13 @@ if($_GET['o'] == 'add') {
 			    <div class="col-sm-10">
 			      <input type="text" class="form-control" id="clientContact" name="clientContact" placeholder="Contact Number" autocomplete="off" value="<?php echo $data[3] ?>" />
 			    </div>
-			  </div> <!--/form-group-->			  
+			  </div> <!--/form-group-->	
+			<div class="form-group">
+			    <label for="clientAddress" class="col-sm-2 control-label">Shipping Address</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="clientAddress" name="clientAddress" placeholder="Shipping Address" autocomplete="off" value="<?php echo $data[13] ?>" />
+			    </div>
+			  </div> <!--/form-group-->
 
 			  <table class="table" id="productTable">
 			  	<thead>
